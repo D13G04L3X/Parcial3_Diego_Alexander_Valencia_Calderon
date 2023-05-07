@@ -5,10 +5,12 @@ namespace Parcial3_Diego_Alexander_Valencia_Calderon.DAL.Entities
 {
     public class Vehicle : Entity
     {
-        [ForeignKey("Id")]
-        [Required]
-        [Display(Name = "Id del servicio")] 
-        public Guid ServiceId { get; set; }
+        //[Required]
+        //[Display(Name = "Id del servicio")] 
+        //public Guid ServiceId { get; set; }       //I change the logic
+
+        [Display(Name = "Servicio")]
+        public Service Service { get; set; }
 
         [Display(Name = "Propietario")]
         public string Owner { get; set; }
