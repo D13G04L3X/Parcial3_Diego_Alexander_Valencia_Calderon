@@ -1,11 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿ using Microsoft.EntityFrameworkCore;
 using Parcial3_Diego_Alexander_Valencia_Calderon.DAL.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace Parcial3_Diego_Alexander_Valencia_Calderon.DAL
 {
-    public class DatabaseContext : DbContext
+    public class DatabaseContext : IdentityDbContext<User>
     {
-        public DatabaseContext(DbContextOptions<DatabaseContext> options ) : base(options)                       //Constructor vacío que genera la conexión a la base de datos
+        public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)                       //Constructor vacío que genera la conexión a la base de datos
         {
 
         }
