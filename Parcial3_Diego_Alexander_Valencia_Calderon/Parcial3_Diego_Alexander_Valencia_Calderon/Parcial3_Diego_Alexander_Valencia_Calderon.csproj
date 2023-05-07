@@ -7,10 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Views\Account\Login.cshtml" />
+    <Compile Remove="wwwroot\NewFolder\**" />
+    <Content Remove="wwwroot\NewFolder\**" />
+    <EmbeddedResource Remove="wwwroot\NewFolder\**" />
+    <None Remove="wwwroot\NewFolder\**" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Account\Login.cshtml" />
+    <Content Remove="Views\Account\Unauthorized.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Views\Account\Unauthorized.cshtml" />
     <Compile Include="Views\Account\Login.cshtml" />
   </ItemGroup>
 

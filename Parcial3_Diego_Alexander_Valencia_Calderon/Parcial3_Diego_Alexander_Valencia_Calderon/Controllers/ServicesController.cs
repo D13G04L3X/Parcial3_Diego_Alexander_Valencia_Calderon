@@ -94,7 +94,7 @@ namespace Parcial3_Diego_Alexander_Valencia_Calderon.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Name,Price,Id")] Service service)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Name,Price")] Service service)
         {
             if (id != service.Id)
             {

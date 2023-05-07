@@ -42,14 +42,14 @@ namespace Parcial3_Diego_Alexander_Valencia_Calderon.Controllers
                     return RedirectToAction("Index", "Home");
                 }
 
-                ModelState.AddModelError(string.Empty, "Email o contraseña incorrectos.");
+                ModelState.AddModelError(string.Empty, "Email or password invalid.");
             }
             return View(loginViewModel);
         }
 
         public async Task<IActionResult> Logout()
         {
-            await _userHelper.LogoutAsync();
+            await _userHelper.LogOutAsync();
             return RedirectToAction("Index", "Home");
         }
 
@@ -57,6 +57,5 @@ namespace Parcial3_Diego_Alexander_Valencia_Calderon.Controllers
         {
             return View();
         }
-
     }
 }
