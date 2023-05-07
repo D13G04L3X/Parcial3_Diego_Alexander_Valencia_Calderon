@@ -26,6 +26,12 @@ builder.Services.AddIdentity<User, IdentityRole>(io =>
     io.Password.RequiredLength = 6;
 }).AddEntityFrameworkStores<DatabaseContext>();
 
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/Account/Unauthorized";
+    options.AccessDeniedPath = "/Account/Unauthorized";
+});
+
 object value = builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
 builder.Services.AddTransient<SeederDb>();
@@ -58,6 +64,7 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+app.UseStatusCodePagesWithReExecute("/error/{0}");
 app.UseRouting();
 
 app.UseAuthentication();

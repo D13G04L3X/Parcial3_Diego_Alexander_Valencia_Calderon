@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Parcial3_Diego_Alexander_Valencia_Calderon.DAL;
 using Parcial3_Diego_Alexander_Valencia_Calderon.DAL.Entities;
 using Parcial3_Diego_Alexander_Valencia_Calderon.Helpers;
+using Parcial3_Diego_Alexander_Valencia_Calderon.Models;
 
 namespace Parcial3_Diego_Alexander_Valencia_Calderon.Services
 {
@@ -31,6 +32,7 @@ namespace Parcial3_Diego_Alexander_Valencia_Calderon.Services
             await _userManager.AddToRoleAsync(user, roleName);
         }
 
+
         public async Task CheckRoleAsync(string roleName)
         {
             bool roleExist = await _roleManager.RoleExistsAsync(roleName);
@@ -40,14 +42,20 @@ namespace Parcial3_Diego_Alexander_Valencia_Calderon.Services
                 await _roleManager.CreateAsync(new IdentityRole { Name = roleName });
             }
         }
+            
+        public async Task<User> GetUserAsync(string email)
+        {
+            return await _context.Users.FirstOrDefaultAsync(user => user.Email == email);
+        }
 
         public async Task<bool> IsUserInRoleAsync(User user, string roleName)
         {
             return await _userManager.IsInRoleAsync(user, roleName);
         }
-        public async Task<User> GetUserAsync(string email)
+
+        public async Task<SignInResult> LoginAsync(LoginViewModel loginViewModel)
         {
-            return await _context.Users.FirstOrDefaultAsync(user => user.Email == email);
+            return await _signInManager.PasswordSignInAsync(loginViewModel.Username, loginViewModel.Password, loginViewModel.RememberMe, false);
         }
 
         public async Task LogOutAsync()

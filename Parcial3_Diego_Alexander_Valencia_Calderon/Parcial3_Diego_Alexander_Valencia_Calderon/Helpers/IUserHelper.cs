@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Parcial3_Diego_Alexander_Valencia_Calderon.DAL.Entities;
+using Parcial3_Diego_Alexander_Valencia_Calderon.Models;
 
 namespace Parcial3_Diego_Alexander_Valencia_Calderon.Helpers
 {
@@ -11,7 +12,9 @@ namespace Parcial3_Diego_Alexander_Valencia_Calderon.Helpers
         Task CheckRoleAsync(string roleName);
         Task AddUserToRoleAsync(User user, string roleName);
         Task<bool> IsUserInRoleAsync(User user, string roleName);
+        Task<SignInResult> LoginAsync(LoginViewModel loginViewModel);
 
         Task LogOutAsync();
+
     }
 }
