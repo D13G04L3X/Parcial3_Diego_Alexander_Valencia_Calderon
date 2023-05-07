@@ -12,5 +12,8 @@ namespace Parcial3_Diego_Alexander_Valencia_Calderon.DAL.Entities
         [Display(Name = "Precio del Servicio")]
         public decimal Price { get; set; }
 
+        [Display(Name = "Vehiculos")]
+        public ICollection<Vehicle> Vehicles { get; set; }
+
     }
 }

@@ -19,6 +19,8 @@ namespace Parcial3_Diego_Alexander_Valencia_Calderon.DAL.Entities
         [Display(Name = "Fecha de entrega del vehículo")]
         public DateTime DeliveryDate { get; set; }
 
+        [Display(Name = "Usuario")]
+        public User User { get; set; }
 
     }
 }

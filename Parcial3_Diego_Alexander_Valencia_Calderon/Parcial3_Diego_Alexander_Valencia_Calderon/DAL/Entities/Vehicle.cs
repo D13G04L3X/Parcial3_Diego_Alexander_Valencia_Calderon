@@ -18,5 +18,8 @@ namespace Parcial3_Diego_Alexander_Valencia_Calderon.DAL.Entities
         [Display(Name = "Número de Placa")]
         public string NumberPlate { get; set; }
 
+        [Display(Name = "Detalles del Vehiculo")]
+        public ICollection<VehicleDetail> VehicleDetails { get; set; }
+
     }
 }
