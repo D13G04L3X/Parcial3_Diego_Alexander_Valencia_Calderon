@@ -7,7 +7,7 @@ namespace Parcial3_Diego_Alexander_Valencia_Calderon.DAL.Entities
     {
         [ForeignKey("Id")]
         [Required]
-        [Display(Name = "Id del servicio")] //
+        [Display(Name = "Id del servicio")] 
         public Guid ServiceId { get; set; }
 
         [Display(Name = "Propietario")]
